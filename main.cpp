@@ -27,10 +27,14 @@
 #include <stdlib.h>
 #include <vector>
 #include <math.h>
-#include <ctime> 
+#include <ctime>
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
 #include <GL/glut.h>
 #include <process.h>
-#include <windows.h> 
+#include <windows.h>
+#endif
 #include <string>
 
 using namespace std;
@@ -403,7 +407,9 @@ int main(int argc, char** argv)
 	}
 	// run main program loop
 	glutMainLoop();
-	
+
+#ifdef _WIN32
 	system("pause");
+#endif
     return 0;
 }
